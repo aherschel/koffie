@@ -10,6 +10,11 @@
             "StackName": "amplify-authcra-master-225627",
             "StackId": "arn:aws:cloudformation:us-east-1:072027113961:stack/amplify-authcra-master-225627/f16ebd30-2ce9-11ea-afc2-0acf59e535ed",
             "AmplifyAppId": "d3w5aptos7pvn3"
+        },
+        "categories": {
+            "auth": {
+                "cognitocf0c6096": {}
+            }
         }
     }
 }
