@@ -1,0 +1,54 @@
+// tslint:disable
+// this is an auto generated file. This will be overwritten
+
+export const onCreateTodo = `subscription OnCreateTodo($owner: String!) {
+  onCreateTodo(owner: $owner) {
+    id
+    name
+    description
+    owner
+  }
+}
+`;
+export const onUpdateTodo = `subscription OnUpdateTodo($owner: String!) {
+  onUpdateTodo(owner: $owner) {
+    id
+    name
+    description
+    owner
+  }
+}
+`;
+export const onDeleteTodo = `subscription OnDeleteTodo($owner: String!) {
+  onDeleteTodo(owner: $owner) {
+    id
+    name
+    description
+    owner
+  }
+}
+`;
+export const onCreateFriend = `subscription OnCreateFriend($owner: String!) {
+  onCreateFriend(owner: $owner) {
+    id
+    name
+    owner
+  }
+}
+`;
+export const onUpdateFriend = `subscription OnUpdateFriend($owner: String!) {
+  onUpdateFriend(owner: $owner) {
+    id
+    name
+    owner
+  }
+}
+`;
+export const onDeleteFriend = `subscription OnDeleteFriend($owner: String!) {
+  onDeleteFriend(owner: $owner) {
+    id
+    name
+    owner
+  }
+}
+`;

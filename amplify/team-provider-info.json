@@ -1,0 +1,20 @@
+{
+    "test": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-koffie-test-204409-authRole",
+            "UnauthRoleArn": "arn:aws:iam::072027113961:role/amplify-koffie-test-204409-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::072027113961:role/amplify-koffie-test-204409-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-koffie-test-204409-deployment",
+            "UnauthRoleName": "amplify-koffie-test-204409-unauthRole",
+            "StackName": "amplify-koffie-test-204409",
+            "StackId": "arn:aws:cloudformation:us-west-2:072027113961:stack/amplify-koffie-test-204409/47af7850-2b88-11ea-a621-0236211bab6e",
+            "AmplifyAppId": "d181q0jobw3aru"
+        },
+        "categories": {
+            "auth": {
+                "koffie0e5bec7b": {}
+            }
+        }
+    }
+}
