@@ -1,14 +1,14 @@
 {
-    "projectName": "koffie",
-    "version": "3.0",
+    "projectName": "authcra",
+    "version": "1.0",
     "frontend": "javascript",
     "javascript": {
         "framework": "react",
         "config": {
             "SourceDir": "src",
             "DistributionDir": "build",
-            "BuildCommand": "npm.cmd run-script build",
-            "StartCommand": "npm.cmd run-script start"
+            "BuildCommand": "npm run-script build",
+            "StartCommand": "npm run-script start"
         }
     },
     "providers": [

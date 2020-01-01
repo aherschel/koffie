@@ -1,31 +1,7 @@
 {
-	"api": {
-		"koffie": {
-			"service": "AppSync",
-			"providerPlugin": "awscloudformation",
-			"output": {
-				"authConfig": {
-					"additionalAuthenticationProviders": [],
-					"defaultAuthentication": {
-						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
-						"userPoolConfig": {
-							"userPoolId": "authkoffie0e5bec7b"
-						}
-					}
-				}
-			}
-		}
-	},
 	"auth": {
-		"koffie0e5bec7b": {
+		"cognitocf0c6096": {
 			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": []
-		}
-	},
-	"hosting": {
-		"S3AndCloudFront": {
-			"service": "S3AndCloudFront",
 			"providerPlugin": "awscloudformation"
 		}
 	}
