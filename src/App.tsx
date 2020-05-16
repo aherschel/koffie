@@ -1,34 +1,41 @@
 import React, { Component } from 'react'
 import './App.css'
-// @ts-ignore
-import logo from './images/logo.svg'
 import { withAuthenticator } from 'aws-amplify-react'
 import Amplify from 'aws-amplify'
 import aws_exports from './aws-exports'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from 'react-router-dom'
+import { AboutPage } from './pages/AboutPage'
+import { HomePage } from './pages/HomePage'
+import { NavBar } from './components/NavBar'
 
 Amplify.configure(aws_exports)
 
+/**
+ * The top-level App component is responsible for a few key things, including setting up
+ * authentication, routing, and other global state required for the app.
+ */
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <Router>
+            <div>
+                <NavBar />
+                <Switch>
+                    <Route path='/about'>
+                        <AboutPage />
+                    </Route>
+                    <Route path='/'>
+                        <HomePage />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
     )
   }
 }
 
-export default withAuthenticator(App, true);
+export default withAuthenticator(App)
