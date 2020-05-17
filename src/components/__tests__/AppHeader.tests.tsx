@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import LinksPage from "../LinksPage";
+import AppHeader from "../AppHeader";
 
-describe("LinksPage", () => {
+describe("AppHeader", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <Router>
-        <LinksPage />
+        <AppHeader />
       </Router>,
       div
     );

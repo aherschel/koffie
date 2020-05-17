@@ -5,7 +5,7 @@ import Amplify from "aws-amplify";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import aws_exports from "./aws-exports";
 import AboutPage from "./pages/AboutPage";
-import NavBar from "./components/NavBar";
+import AppHeader from "./components/AppHeader";
 import LinksPage from "./pages/LinksPage";
 
 Amplify.configure(aws_exports);
@@ -18,7 +18,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        <NavBar />
+        <AppHeader />
         <Switch>
           <Route path="/about">
             <AboutPage />

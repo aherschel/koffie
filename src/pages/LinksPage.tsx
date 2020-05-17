@@ -4,6 +4,7 @@ import CreateLinkButton from "../components/CreateLinkButton";
 import LinkList from "../components/LinkList";
 import LinkCreatedAlert from "../components/LinkCreatedAlert";
 import Link from "../model/Link";
+import AppHero from "../components/AppHero";
 
 const LinksPage = () => {
   const [isLinkCreatedVisible, setIsLinkCreatedVisible] = useState(false);
@@ -15,7 +16,6 @@ const LinksPage = () => {
       oldLinks.push(link);
       return oldLinks;
     });
-    // TODO: Something seems weird here.
     setIsLinkCreatedVisible(true);
   };
 
@@ -24,12 +24,16 @@ const LinksPage = () => {
       <LinkCreatedAlert
         isVisible={isLinkCreatedVisible}
         onDismiss={hideLinkCreatedAlert}
+        autoDismissMs={3000}
       />
+      <br />
+      <AppHero />
       <Row>
         <Col>
           <CreateLinkButton onCreateLink={addLink} />
         </Col>
       </Row>
+      <br />
       <LinkList links={links} />
     </Container>
   );

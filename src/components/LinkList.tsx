@@ -1,4 +1,5 @@
 import React from "react";
+import { ListGroup } from "react-bootstrap";
 import Link from "../model/Link";
 import LinkListElement from "./LinkListElement";
 
@@ -11,10 +12,20 @@ type LinkListProps = {
 
 const LinkList = (props: LinkListProps) => {
   const { links } = props;
+  if (links.length === 0) {
+    return null;
+  }
 
-  const linkElements = links.map((link) => <LinkListElement link={link} />);
-
-  return <ul>{linkElements}</ul>;
+  return (
+    <>
+      <h3>Your Links</h3>
+      <ListGroup>
+        {links.map((link) => (
+          <LinkListElement link={link} />
+        ))}
+      </ListGroup>
+    </>
+  );
 };
 
 export default LinkList;
