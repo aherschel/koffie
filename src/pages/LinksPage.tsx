@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import CreateLinkButton from "../components/CreateLinkButton";
 import LinkList from "../components/LinkList";
 import LinkCreatedAlert from "../components/LinkCreatedAlert";
@@ -20,7 +20,7 @@ const LinksPage = () => {
   };
 
   return (
-    <Container className="App">
+    <>
       <LinkCreatedAlert
         isVisible={isLinkCreatedVisible}
         onDismiss={hideLinkCreatedAlert}
@@ -35,7 +35,7 @@ const LinksPage = () => {
       </Row>
       <br />
       <LinkList links={links} />
-    </Container>
+    </>
   );
 };
 
