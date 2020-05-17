@@ -36,7 +36,7 @@ const LinksPage = () => {
       <br />
       <LinkList links={links} />
     </>
-  );q
+  );
 };
 
 export default LinksPage;
