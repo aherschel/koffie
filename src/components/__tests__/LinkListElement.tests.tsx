@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HomePage from "../HomePage";
+import LinkListElement from "../LinkListElement";
 
-describe("HomePage", () => {
+describe("LinkListElement", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
-    ReactDOM.render(<HomePage />, div);
+    ReactDOM.render(
+      <LinkListElement link={{ name: "", frequency: "" }} />,
+      div
+    );
     ReactDOM.unmountComponentAtNode(div);
   });
 });
