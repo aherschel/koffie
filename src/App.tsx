@@ -3,10 +3,12 @@ import "./App.css";
 import { withAuthenticator } from "aws-amplify-react";
 import Amplify from "aws-amplify";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
 import aws_exports from "./aws-exports";
 import AboutPage from "./pages/AboutPage";
 import AppHeader from "./components/AppHeader";
 import LinksPage from "./pages/LinksPage";
+import AppFooter from "./components/AppFooter";
 
 Amplify.configure(aws_exports);
 
@@ -19,14 +21,17 @@ const App = () => {
     <Router>
       <div>
         <AppHeader />
-        <Switch>
-          <Route path="/about">
-            <AboutPage />
-          </Route>
-          <Route path="/">
-            <LinksPage />
-          </Route>
-        </Switch>
+        <Container>
+          <Switch>
+            <Route path="/about">
+              <AboutPage />
+            </Route>
+            <Route path="/">
+              <LinksPage />
+            </Route>
+          </Switch>
+          <AppFooter />
+        </Container>
       </div>
     </Router>
   );
