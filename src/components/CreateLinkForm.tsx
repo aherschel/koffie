@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import Link from "../model/Link";
+import Link, { createLink } from "../model/Link";
 
 type CreateLinkFormProps = {
   /**
@@ -20,7 +20,7 @@ const CreateLinkForm = (props: CreateLinkFormProps) => {
   const { onCreateLink } = props;
 
   const onClick = () => {
-    const link: Link = { name, frequency };
+    const link: Link = createLink({ name, frequency });
     onCreateLink(link);
   };
 

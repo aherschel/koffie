@@ -1,4 +1,5 @@
 import React from "react";
+import { ListGroup } from "react-bootstrap";
 import Link from "../model/Link";
 
 type LinkListElementProps = {
@@ -11,9 +12,9 @@ type LinkListElementProps = {
 const LinkListElement = (props: LinkListElementProps) => {
   const { link } = props;
   return (
-    <li key={link.name}>
+    <ListGroup.Item key={link.id}>
       Link with {link.name} to reach out {link.frequency}.
-    </li>
+    </ListGroup.Item>
   );
 };
 
