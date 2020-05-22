@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import Link, { createLink } from "../model/Link";
+import Link, { newLink } from "../model/Link";
+import { FrequencyCategory } from "../model/Frequency";
+import FrequencyPicker from "./FrequencyPicker";
 
 type CreateLinkFormProps = {
   /**
@@ -15,12 +17,12 @@ type CreateLinkFormProps = {
  */
 const CreateLinkForm = (props: CreateLinkFormProps) => {
   const [name, setName] = useState("");
-  const [frequency, setFrequency] = useState("");
+  const [frequency, setFrequency] = useState("Weekly" as FrequencyCategory);
 
   const { onCreateLink } = props;
 
   const onClick = () => {
-    const link: Link = createLink({ name, frequency });
+    const link: Link = newLink(name, frequency);
     onCreateLink(link);
   };
 
@@ -28,8 +30,8 @@ const CreateLinkForm = (props: CreateLinkFormProps) => {
     setName(event.target.value);
   };
 
-  const onFrequencyChange = (event: any) => {
-    setFrequency(event.target.value);
+  const onFrequencyChange = (newFrequency: FrequencyCategory) => {
+    setFrequency(newFrequency);
   };
 
   return (
@@ -43,14 +45,7 @@ const CreateLinkForm = (props: CreateLinkFormProps) => {
         />
       </Form.Group>
 
-      <Form.Group>
-        <Form.Label>Initial Outreach Frequency</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter frequency"
-          onChange={onFrequencyChange}
-        />
-      </Form.Group>
+      <FrequencyPicker onFrequencyChange={onFrequencyChange} />
 
       <Button variant="primary" type="button" onClick={onClick}>
         Create

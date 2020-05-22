@@ -21,7 +21,7 @@ const LinkList = (props: LinkListProps) => {
       <h3>Your Links</h3>
       <ListGroup>
         {links.map((link) => (
-          <LinkListElement link={link} />
+          <LinkListElement key={link.id} link={link} />
         ))}
       </ListGroup>
     </>
