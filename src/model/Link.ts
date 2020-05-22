@@ -6,7 +6,7 @@ import Checkpoint from "./Checkpoint";
  * Link model for use across the app.
  */
 export default interface Link {
-  id: string;
+  id: string | undefined;
   name: string;
   frequency: Frequency;
   checkpoints: Checkpoint[];
