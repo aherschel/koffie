@@ -17,7 +17,7 @@ const AppHeader = () => {
       <Navbar.Toggle aria-controls="navbar" />
       <Navbar.Collapse id="navbar">
         <Nav className="mr-auto">
-          <Link className="nav-link" to="/">
+          <Link className="nav-link" to="/links">
             Home
           </Link>
           <Link className="nav-link" to="/about">
