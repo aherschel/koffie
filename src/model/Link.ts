@@ -1,4 +1,6 @@
 import { Guid } from "guid-typescript";
+import Frequency, { createFrequency, FrequencyCategory } from "./Frequency";
+import Checkpoint from "./Checkpoint";
 
 /**
  * Link model for use across the app.
@@ -6,21 +8,30 @@ import { Guid } from "guid-typescript";
 export default interface Link {
   id: string;
   name: string;
-  frequency: string;
+  frequency: Frequency;
+  checkpoints: Checkpoint[];
 }
 
 interface LinkData {
   name: string;
-  frequency: string;
+  frequency: Frequency;
+  checkpoints: Checkpoint[];
 }
 
-/**
- * Utility to generate the link w/ a GUID as an id.
- */
 export const createLink = (linkData: LinkData): Link => {
   return {
     id: Guid.create().toString(),
-    name: linkData.name,
-    frequency: linkData.frequency,
+    ...linkData,
   };
+};
+
+export const newLink = (
+  name: string,
+  frequencyCategory: FrequencyCategory
+): Link => {
+  return createLink({
+    name,
+    frequency: createFrequency(frequencyCategory),
+    checkpoints: [],
+  });
 };

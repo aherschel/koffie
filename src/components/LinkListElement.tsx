@@ -13,7 +13,9 @@ const LinkListElement = (props: LinkListElementProps) => {
   const { link } = props;
   return (
     <ListGroup.Item key={link.id}>
-      Link with {link.name} to reach out {link.frequency}.
+      Link with {link.name} to reach out {link.frequency.category},{" "}
+      {/* eslint-disable-next-line react/no-unescaped-entities */}
+      you've recorded {link.checkpoints.length} checkpoints.
     </ListGroup.Item>
   );
 };
