@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { ListGroup } from "react-bootstrap";
+import { IoIosArrowForward } from "react-icons/io"
 import Link from "../model/Link";
 
 type LinkListElementProps = {
@@ -25,6 +26,7 @@ const LinkListElement = (props: LinkListElementProps) => {
       Link with {link.name} to reach out {link.frequency.category},{" "}
       {/* eslint-disable-next-line react/no-unescaped-entities */}
       you've recorded {link.checkpoints.length} checkpoints.
+      <IoIosArrowForward className="float-right" />
     </ListGroup.Item>
   );
 };

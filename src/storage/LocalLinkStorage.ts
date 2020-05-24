@@ -1,5 +1,6 @@
 import LinkStorage from "./LinkStorage";
 import Link from "../model/Link";
+import ResourceNotFoundException from "./Exception";
 
 const LINK_STORAGE_NAMESPACE = "link";
 const LINK_INDEX_KEY = "index";
@@ -35,7 +36,9 @@ class LocalLinkStorage implements LinkStorage {
       `${LINK_STORAGE_NAMESPACE}/${usedId}`
     );
     if (serializedLink === null) {
-      throw Error(`Could not find link with Id ${usedId} in localStorage`);
+      throw new ResourceNotFoundException(
+        `Could not find link with Id ${usedId} in localStorage`
+      );
     }
     return JSON.parse(serializedLink);
   };
@@ -61,10 +64,28 @@ class LocalLinkStorage implements LinkStorage {
     console.debug(`Updating link: ${JSON.stringify(link)}`);
     const key = `${LINK_STORAGE_NAMESPACE}/${link.id}`;
     if (localStorage.getItem(key) === null) {
-      throw Error(`Could not find link with Id ${link.id} in localStorage`);
+      throw new ResourceNotFoundException(
+        `Could not find link with Id ${link.id} in localStorage`
+      );
     }
     const serializedLink = JSON.stringify(link);
     localStorage.setItem(key, serializedLink);
+  };
+
+  /**
+   * {@see LinkStorage}
+   */
+  deleteLink = (linkId: string): void => {
+    console.debug(`Deleting link with ID: ${linkId}`);
+    localStorage.removeItem(`${LINK_STORAGE_NAMESPACE}/${linkId}`);
+    const indexKey = `${LINK_STORAGE_NAMESPACE}/${LINK_INDEX_KEY}`;
+    let index: string[] = [];
+    const serializedIndex = localStorage.getItem(indexKey);
+    if (serializedIndex !== null) {
+      index = JSON.parse(serializedIndex);
+    }
+    index = index.filter((id) => id !== linkId);
+    localStorage.setItem(indexKey, JSON.stringify(index));
   };
 }
 
