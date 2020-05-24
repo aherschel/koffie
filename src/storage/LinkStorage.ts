@@ -1,5 +1,4 @@
 import Link from "../model/Link";
-import Frequency from "../model/Frequency";
 
 /**
  * Interface for link storage implementations.
@@ -18,10 +17,15 @@ export default interface LinkStorage {
   /**
    * Create a new link, and add to customer list of links.
    */
-  addLink: (link: { name: string; checkpoints: any[]; id: undefined; frequency: Frequency }) => void;
+  addLink: (link: Link) => void;
 
   /**
    * Update a link data.
    */
   updateLink: (link: Link) => void;
+
+  /**
+   * Deletes a link given a linkId.
+   */
+  deleteLink: (linkId: string) => void;
 }
