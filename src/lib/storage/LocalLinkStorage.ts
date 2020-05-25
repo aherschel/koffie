@@ -1,11 +1,39 @@
-import LinkStorage from "./LinkStorage";
-import Link from "../model/Link";
-import ResourceNotFoundException from "./Exception";
+import { LinkStorage, LinkUpdateCallback, OptionalLink } from "./LinkStorage";
+import { Link } from "../model";
+import { ResourceNotFoundException } from "../exception";
 
 const LINK_STORAGE_NAMESPACE = "link";
 const LINK_INDEX_KEY = "index";
 
 class LocalLinkStorage implements LinkStorage {
+  linkCallbacks: Map<string, Set<LinkUpdateCallback>> = new Map();
+
+  /**
+   * Internal method to notify al subscribed listeners of link updates.
+   */
+  private readonly notifySubscriptionsOfLinkUpdate = (
+    linkId: string,
+    updatedLink: OptionalLink
+  ): void => {
+    console.debug(`Notifying subscribed listeners of link update.`);
+    const callbacks = this.linkCallbacks.get(linkId);
+    if (callbacks === undefined) {
+      return;
+    }
+    callbacks.forEach((callback) => {
+      try {
+        console.debug(`Notifying callback.`);
+        callback(updatedLink);
+      } catch (ex) {
+        console.error(
+          `Caught exception while updating link callbacks: ${JSON.stringify(
+            ex
+          )}`
+        );
+      }
+    });
+  };
+
   /**
    * {@see LinkStorage}
    */
@@ -24,6 +52,7 @@ class LocalLinkStorage implements LinkStorage {
     }
     index.push(link.id || "");
     localStorage.setItem(indexKey, JSON.stringify(index));
+    this.notifySubscriptionsOfLinkUpdate(link.id!, link);
   };
 
   /**
@@ -70,6 +99,7 @@ class LocalLinkStorage implements LinkStorage {
     }
     const serializedLink = JSON.stringify(link);
     localStorage.setItem(key, serializedLink);
+    this.notifySubscriptionsOfLinkUpdate(link.id!, link);
   };
 
   /**
@@ -86,6 +116,34 @@ class LocalLinkStorage implements LinkStorage {
     }
     index = index.filter((id) => id !== linkId);
     localStorage.setItem(indexKey, JSON.stringify(index));
+    this.notifySubscriptionsOfLinkUpdate(linkId, undefined);
+  };
+
+  /**
+   * {@see LinkStorage}
+   */
+  subscribeToLinkUpdates = (
+    linkId: string,
+    handleLinkUpdate: LinkUpdateCallback
+  ) => {
+    console.debug(`Subscribing to link updates for link ID: ${linkId}`);
+    if (this.linkCallbacks.has(linkId)) {
+      const callbacks = this.linkCallbacks.get(linkId)!;
+      callbacks.add(handleLinkUpdate);
+      this.linkCallbacks.set(linkId, callbacks);
+    } else {
+      this.linkCallbacks.set(
+        linkId,
+        new Set<LinkUpdateCallback>().add(handleLinkUpdate)
+      );
+    }
+    return () => {
+      if (this.linkCallbacks.has(linkId)) {
+        const callbacks = this.linkCallbacks.get(linkId)!;
+        callbacks.delete(handleLinkUpdate);
+        this.linkCallbacks.set(linkId, callbacks);
+      }
+    };
   };
 }
 

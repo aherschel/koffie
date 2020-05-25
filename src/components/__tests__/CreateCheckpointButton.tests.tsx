@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import CreateCheckpointButton from "../CreateCheckpointButton";
-import { newLink } from "../../model/Link";
+import { CreateCheckpointButton } from "..";
+import { newLink } from "../../lib/model";
 
 describe("CreateCheckpointButton", () => {
   it("renders without crashing", () => {

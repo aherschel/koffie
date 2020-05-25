@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import LinkListElement from "../LinkListElement";
-import { newLink } from "../../model/Link";
+import { LinkListElement } from "..";
+import { newLink } from "../../lib/model";
 
 describe("LinkListElement", () => {
   it("renders without crashing", () => {

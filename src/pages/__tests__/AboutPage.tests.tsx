@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AboutPage from "../AboutPage";
+import { AboutPage } from "..";
 
 describe("AboutPage", () => {
   it("renders without crashing", () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import { FrequencyCategory } from "../model/Frequency";
+import { FrequencyCategory } from "../lib/model";
 
 type FrequencyPickerProps = {
   onFrequencyChange: (newFrequency: FrequencyCategory) => void;

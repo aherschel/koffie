@@ -1,11 +1,11 @@
 import { Guid } from "guid-typescript";
-import Frequency, { createFrequency, FrequencyCategory } from "./Frequency";
-import Checkpoint from "./Checkpoint";
+import { createFrequency, Frequency, FrequencyCategory } from "./Frequency";
+import { Checkpoint } from "./Checkpoint";
 
 /**
- * Link model for use across the app.
+ * Link lib.model for use across the app.
  */
-export default interface Link {
+export interface Link {
   id: string | undefined;
   name: string;
   frequency: Frequency;

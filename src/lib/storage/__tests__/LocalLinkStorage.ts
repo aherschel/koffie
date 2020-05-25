@@ -1,6 +1,6 @@
-import localLinkStorage from "../LocalLinkStorage";
-import { newLink } from "../../model/Link";
-import ResourceNotFoundException from "../Exception";
+import localLinkStorage from "..";
+import { newLink } from "../../model";
+import { ResourceNotFoundException } from "../../exception";
 
 describe("LocalLinkStorage", () => {
   it("can add and retrieve a link", () => {

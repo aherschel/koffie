@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import AppHero from "../AppHero";
+import { AppHero } from "..";
 
 describe("AppHero", () => {
   it("renders without crashing", () => {

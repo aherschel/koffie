@@ -3,9 +3,9 @@ import { Row, Col } from "react-bootstrap";
 import CreateLinkButton from "../components/CreateLinkButton";
 import LinkList from "../components/LinkList";
 import LinkCreatedAlert from "../components/LinkCreatedAlert";
-import Link from "../model/Link";
+import { Link } from "../lib/model";
 import AppHero from "../components/AppHero";
-import localLinkStorage from "../storage/LocalLinkStorage";
+import localLinkStorage from "../lib/storage";
 
 /**
  * TODO: I'm just using some local storage for now, it's also weird that

@@ -1,5 +1,4 @@
-import Link, {createLink, newLink} from "../Link";
-import { createFrequency } from "../Frequency";
+import { createLink, Link, newLink, createFrequency } from "..";
 
 describe("Link", () => {
   it("can be instantiated directly", () => {

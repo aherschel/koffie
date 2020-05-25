@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import Link from "../model/Link";
+import { frequencyConfig, Link } from "../lib/model";
 
 interface LinkOverviewProps {
   link: Link;
@@ -21,10 +21,8 @@ const LinkOverview = (props: LinkOverviewProps) => {
           <b>Name:</b> {link.name}
         </Col>
         <Col md>
-          <b>Frequency Category:</b> {link.frequency.category}
-        </Col>
-        <Col md>
-          <b>Checkpoint Count:</b> {link.checkpoints.length}
+          <b>Frequency Category:</b>{" "}
+          {frequencyConfig[link.frequency.category].printName}
         </Col>
       </Row>
     </>
