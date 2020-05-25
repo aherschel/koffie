@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import LinkCreatedAlert from "../LinkCreatedAlert";
+import { LinkCreatedAlert } from "..";
 
 describe("LinkCreatedAlert", () => {
   it("renders without crashing", () => {

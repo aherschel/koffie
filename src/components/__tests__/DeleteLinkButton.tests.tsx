@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import DeleteLinkButton from "../DeleteLinkButton";
+import { DeleteLinkButton } from "..";
 
 describe("DeleteLinkButton", () => {
   it("renders without crashing", () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import CreateLinkForm from "../CreateLinkForm";
+import { CreateLinkForm } from "..";
 
 describe("CreateLinkForm", () => {
   it("renders without crashing", () => {

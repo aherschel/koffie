@@ -1,9 +1,12 @@
-import Link from "../model/Link";
+import { Link } from "../model";
+
+export type OptionalLink = Link | undefined;
+export type LinkUpdateCallback = (updatedLink: OptionalLink) => void;
 
 /**
  * Interface for link storage implementations.
  */
-export default interface LinkStorage {
+export interface LinkStorage {
   /**
    * Return all links for the user.
    */
@@ -28,4 +31,13 @@ export default interface LinkStorage {
    * Deletes a link given a linkId.
    */
   deleteLink: (linkId: string) => void;
+
+  /**
+   * API to subscribe to link update changes.
+   * Returns a function to unsubscribe.
+   */
+  subscribeToLinkUpdates: (
+    linkId: string,
+    handleLinkUpdate: LinkUpdateCallback
+  ) => () => void;
 }

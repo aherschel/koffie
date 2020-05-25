@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { IoIosPersonAdd } from "react-icons/io";
 import CreateLinkForm from "./CreateLinkForm";
-import Link from "../model/Link";
+import { Link } from "../lib/model";
 
 type CreateLinkButtonProps = {
   /**

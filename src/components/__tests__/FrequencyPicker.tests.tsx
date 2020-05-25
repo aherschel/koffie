@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import FrequencyPicker from "../FrequencyPicker";
-import { FrequencyCategory } from "../../model/Frequency";
+import { FrequencyPicker } from "..";
+import { FrequencyCategory } from "../../lib/model";
 
 describe("FrequencyPicker", () => {
   it("renders without crashing", () => {

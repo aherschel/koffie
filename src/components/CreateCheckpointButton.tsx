@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
-import Link from "../model/Link";
+import { Link } from "../lib/model";
+import scheduleCheckpoint from "../lib/scheduler";
+import localLinkStorage from "../lib/storage";
 
 interface CreateCheckpointButtonProps {
   link: Link;
@@ -9,11 +11,16 @@ interface CreateCheckpointButtonProps {
 
 const CreateCheckpointButton = (props: CreateCheckpointButtonProps) => {
   const { link } = props;
-  console.log(link);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const onAutoCreate = () => {
+    const scheduledCheckpoint = scheduleCheckpoint(link);
+    link.checkpoints.push(scheduledCheckpoint);
+    localLinkStorage.updateLink(link);
+    setShow(false);
+  };
 
   return (
     <>
@@ -27,6 +34,9 @@ const CreateCheckpointButton = (props: CreateCheckpointButtonProps) => {
         </Modal.Header>
         <Modal.Body>
           <p>TODO</p>
+          <Button variant="primary" type="button" onClick={onAutoCreate}>
+            Auto-Create
+          </Button>
         </Modal.Body>
       </Modal>
     </>

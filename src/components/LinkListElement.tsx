@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { ListGroup } from "react-bootstrap";
-import { IoIosArrowForward } from "react-icons/io"
-import Link from "../model/Link";
+import { IoIosArrowForward } from "react-icons/io";
+import { frequencyConfig, Link } from "../lib/model";
 
 type LinkListElementProps = {
   /**
@@ -23,7 +23,8 @@ const LinkListElement = (props: LinkListElementProps) => {
   }
   return (
     <ListGroup.Item action onClick={() => setToDetailPage(true)}>
-      Link with {link.name} to reach out {link.frequency.category},{" "}
+      Link with {link.name} to reach out{" "}
+      {frequencyConfig[link.frequency.category].printName},{" "}
       {/* eslint-disable-next-line react/no-unescaped-entities */}
       you've recorded {link.checkpoints.length} checkpoints.
       <IoIosArrowForward className="float-right" />

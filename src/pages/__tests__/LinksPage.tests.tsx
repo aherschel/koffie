@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import LinksPage from "../LinksPage";
+import { LinksPage } from "..";
 
 describe("LinksPage", () => {
   it("renders without crashing", () => {

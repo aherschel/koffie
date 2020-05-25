@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import LinkList from "../LinkList";
+import { LinkList } from "..";
 
 describe("LinkList", () => {
   it("renders without crashing", () => {

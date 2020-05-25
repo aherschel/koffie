@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import LinkDetailPage from "../LinkDetailPage";
-import localLinkStorage from "../../storage/LocalLinkStorage";
-import { createFrequency } from "../../model/Frequency";
+import { LinkDetailPage } from "..";
+import localLinkStorage from "../../lib/storage";
+import { createFrequency } from "../../lib/model";
 
 describe("LinkDetailPage", () => {
   it("renders without crashing", () => {

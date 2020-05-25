@@ -1,6 +1,6 @@
 import React from "react";
 import { ListGroup } from "react-bootstrap";
-import Link from "../model/Link";
+import { Link } from "../lib/model";
 import LinkListElement from "./LinkListElement";
 
 type LinkListProps = {

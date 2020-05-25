@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import Link, { newLink } from "../model/Link";
-import { FrequencyCategory } from "../model/Frequency";
+import { Link, newLink, FrequencyCategory } from "../lib/model";
 import FrequencyPicker from "./FrequencyPicker";
 
 type CreateLinkFormProps = {
@@ -35,7 +34,7 @@ const CreateLinkForm = (props: CreateLinkFormProps) => {
   };
 
   return (
-    <Form>
+    <>
       <Form.Group>
         <Form.Label>Link Name</Form.Label>
         <Form.Control
@@ -50,7 +49,7 @@ const CreateLinkForm = (props: CreateLinkFormProps) => {
       <Button variant="primary" type="button" onClick={onClick}>
         Create
       </Button>
-    </Form>
+    </>
   );
 };
 

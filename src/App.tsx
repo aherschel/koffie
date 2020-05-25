@@ -10,11 +10,8 @@ import {
 } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import aws_exports from "./aws-exports";
-import AboutPage from "./pages/AboutPage";
-import AppHeader from "./components/AppHeader";
-import LinksPage from "./pages/LinksPage";
-import AppFooter from "./components/AppFooter";
-import LinkDetailPage from "./pages/LinkDetailPage";
+import { AboutPage, LinkDetailPage, LinksPage } from "./pages";
+import { AppHeader, AppFooter } from "./components";
 
 Amplify.configure(aws_exports);
 

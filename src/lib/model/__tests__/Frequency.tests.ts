@@ -1,4 +1,4 @@
-import Frequency, { createFrequency } from "../Frequency";
+import { createFrequency, Frequency } from "..";
 
 describe("Frequency", () => {
   it("can be instantiated directly", () => {

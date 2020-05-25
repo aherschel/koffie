@@ -1,14 +1,34 @@
 import React from "react";
-import Checkpoint from "../model/Checkpoint";
+import { ListGroup } from "react-bootstrap";
+import { Checkpoint, CheckpointType } from "../lib/model";
+import CheckpointListElement from "./CheckpointListElement";
 
 interface CheckpointListProps {
+  checkpointlistType: CheckpointType;
   checkpoints: Checkpoint[];
 }
 
 const CheckpointList = (props: CheckpointListProps) => {
-  const { checkpoints } = props;
+  const { checkpointlistType, checkpoints } = props;
 
-  return <p>You&apos;ve had {checkpoints.length} checkpoints.</p>;
+  const filteredCheckpoints = checkpoints.filter(
+    (checkpoint) => checkpoint.checkpointType === checkpointlistType
+  );
+
+  return (
+    <>
+      <h5>
+        {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
+        You{"'"}ve had {filteredCheckpoints.length} {checkpointlistType}{" "}
+        checkpoints.
+      </h5>
+      <ListGroup>
+        {filteredCheckpoints.map((checkpoint) => (
+          <CheckpointListElement key={checkpoint.id} checkpoint={checkpoint} />
+        ))}
+      </ListGroup>
+    </>
+  );
 };
 
 export default CheckpointList;
