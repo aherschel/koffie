@@ -8,6 +8,7 @@ import ResourceNotFoundException from "../storage/Exception";
 import LinkOverview from "../components/LinkOverview";
 import CreateCheckpointButton from "../components/CreateCheckpointButton";
 import CheckpointList from "../components/CheckpointList";
+import LinkNotFound from "../components/LinkNotFound";
 
 /**
  * Tries to retrieve a link by linkId, and returns undefined
@@ -38,12 +39,8 @@ const LinkDetailPage = () => {
 
   const link = tryAndGetLink(linkId);
 
-  // TODO: mar to create a LinkNotFound component which is a prettier version of this message.
-  // For some examples of components, you can look at src/components/AppHero.tsx and create a
-  // new similar component called LinkNotFound.tsx (along w/ test file!) Use that as a starting point
-  // Then include <LinkNotFound /> here instead of this h2 tag.
   if (link === undefined) {
-    return <h3>No Link found with ID: {linkId}</h3>;
+    return <LinkNotFound linkId={linkId} />;
   }
 
   return (
