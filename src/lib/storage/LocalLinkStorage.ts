@@ -38,6 +38,10 @@ class LocalLinkStorage implements LinkStorage {
    * {@see LinkStorage}
    */
   addLink = (link: Link): void => {
+    link.checkpoints.forEach((checkpoint) => {
+      // eslint-disable-next-line no-param-reassign
+      checkpoint.date = checkpoint.date.valueOf();
+    });
     const serializedLink = JSON.stringify(link);
     console.debug(`Adding link: ${serializedLink}`);
     localStorage.setItem(
@@ -69,7 +73,12 @@ class LocalLinkStorage implements LinkStorage {
         `Could not find link with Id ${usedId} in localStorage`
       );
     }
-    return JSON.parse(serializedLink);
+    const link: Link = JSON.parse(serializedLink);
+    link.checkpoints.forEach((checkpoint) => {
+      // eslint-disable-next-line no-param-reassign
+      checkpoint.date = new Date(checkpoint.date);
+    });
+    return link;
   };
 
   /**
@@ -97,6 +106,10 @@ class LocalLinkStorage implements LinkStorage {
         `Could not find link with Id ${link.id} in localStorage`
       );
     }
+    link.checkpoints.forEach((checkpoint) => {
+      // eslint-disable-next-line no-param-reassign
+      checkpoint.date = checkpoint.date.valueOf();
+    });
     const serializedLink = JSON.stringify(link);
     localStorage.setItem(key, serializedLink);
     this.notifySubscriptionsOfLinkUpdate(link.id!, link);

@@ -3,6 +3,7 @@ import { Guid } from "guid-typescript";
 export interface Checkpoint {
   id: string;
   checkpointType: CheckpointType;
+  date: Date | number;
 }
 
 type CheckpointCreationType = "Auto" | "Manual";
@@ -10,7 +11,6 @@ export type CheckpointType = "Scheduled" | "Past";
 
 export interface ScheduledCheckpoint extends Checkpoint {
   checkpointType: "Scheduled";
-  date: Date;
   timesRescheduled: number;
   creationType: CheckpointCreationType;
 }
@@ -21,7 +21,6 @@ interface CheckpointFeedback {
 
 export interface PastCheckpoint extends Checkpoint {
   checkpointType: "Past";
-  date: Date;
   timesRescheduled: number;
   creationType: CheckpointCreationType;
   didOccur: boolean;
