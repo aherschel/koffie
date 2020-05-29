@@ -6,6 +6,7 @@ import {
   LinkOverview,
   CreateCheckpointButton,
   LinkNotFound,
+  CheckpointCalendar,
 } from "../components";
 import { useLink } from "../hooks";
 import Checkpoints from "../components/Checkpoints";
@@ -37,6 +38,8 @@ const LinkDetailPage = () => {
       </Row>
       <br />
       <LinkOverview link={link} />
+      <br />
+      <CheckpointCalendar checkpoints={link.checkpoints} />
       <br />
       <Row>
         <Col md>
