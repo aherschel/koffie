@@ -15,6 +15,7 @@ import LinkListElement from "./LinkListElement";
 import LinkOverview from "./LinkOverview";
 import LinkNotFound from "./LinkNotFound";
 import PastCheckpointListElement from "./PastCheckpointListElement";
+import CheckpointTimeline from "./CheckpointTimeline";
 
 export {
   AppFooter,
@@ -34,4 +35,5 @@ export {
   LinkOverview,
   LinkNotFound,
   PastCheckpointListElement,
+  CheckpointTimeline,
 };
