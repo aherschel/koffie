@@ -6,7 +6,7 @@ import LinkCreatedAlert from "../components/LinkCreatedAlert";
 import { Link } from "../lib/model";
 import AppHero from "../components/AppHero";
 import localLinkStorage from "../lib/storage";
-import { CheckpointCalendar } from "../components";
+import { CheckpointTimeline } from "../components";
 
 /**
  * TODO: I'm just using some local storage for now, it's also weird that
@@ -41,7 +41,7 @@ const LinksPage = () => {
         </Col>
       </Row>
       <br />
-      <CheckpointCalendar checkpoints={[]} />
+      <CheckpointTimeline links={links} />
       <br />
       <LinkList links={links} />
     </>

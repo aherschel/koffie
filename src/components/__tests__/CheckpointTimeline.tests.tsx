@@ -1,20 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { CheckpointCalendar } from "..";
-import { createScheduledCheckpoint } from "../../lib/model";
+import { CheckpointTimeline } from "..";
+import { createFrequency, createLink } from "../../lib/model";
 
 describe("CheckpointCalendar", () => {
   it("renders without crashing for an empty list", () => {
     const div = document.createElement("div");
-    ReactDOM.render(<CheckpointCalendar checkpoints={[]} />, div);
+    ReactDOM.render(<CheckpointTimeline links={[]} />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   it("renders without crashing for a non-empty list", () => {
     const div = document.createElement("div");
     ReactDOM.render(
-      <CheckpointCalendar
-        checkpoints={[createScheduledCheckpoint(new Date(), 0, "Auto")]}
+      <CheckpointTimeline
+        links={[
+          createLink({
+            checkpoints: [],
+            frequency: createFrequency("Daily"),
+            name: "",
+          }),
+        ]}
       />,
       div
     );
