@@ -46,12 +46,17 @@ interface CheckpointCalendarProps {
 
 const CheckpointTimeline = (props: CheckpointCalendarProps) => {
   const { links } = props;
+  const groups = convertLinksToGroups(links)
+  const items = convertLinksToItems(links)
+  if (groups.length === 0 || items.length === 0) {
+    return null;
+  }
   return (
     <div>
       <h3>Checkpoint Calendar</h3>
       <Timeline
-        groups={convertLinksToGroups(links)}
-        items={convertLinksToItems(links)}
+        groups={groups}
+        items={items}
         defaultTimeStart={moment().add(-2, "day")}
         defaultTimeEnd={moment().add(12, "day")}
       />
