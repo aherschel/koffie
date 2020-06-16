@@ -19,6 +19,8 @@ import CheckpointTimeline from "./CheckpointTimeline";
 import CreateCheckpointForm from "./CreateCheckpointForm";
 import CheckpointReview from "./CheckpointReview";
 import LoginUpdateWorkflow from "./LoginUpdateWorkflow";
+import ElapsedCheckpointToast from "./ElapsedCheckpointToast"
+import CheckpointFeedbackModal from "./CheckpointFeedbackModal";
 
 export {
   AppFooter,
@@ -42,4 +44,6 @@ export {
   CreateCheckpointForm,
   CheckpointReview,
   LoginUpdateWorkflow,
+  ElapsedCheckpointToast,
+  CheckpointFeedbackModal,
 };
