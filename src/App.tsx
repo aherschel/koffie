@@ -1,5 +1,5 @@
 import React from "react";
-import { withAuthenticator } from "aws-amplify-react";
+// import { withAuthenticator } from "aws-amplify-react";
 import Amplify from "aws-amplify";
 import {
   BrowserRouter as Router,
@@ -10,7 +10,7 @@ import {
 import { Container } from "react-bootstrap";
 import aws_exports from "./aws-exports";
 import { AboutPage, LinkDetailPage, LinksPage } from "./pages";
-import { AppHeader, AppFooter } from "./components";
+import { AppHeader, AppFooter, LoginUpdateWorkflow } from "./components";
 
 Amplify.configure(aws_exports);
 
@@ -24,6 +24,7 @@ const App = () => {
       <div>
         <AppHeader />
         <Container>
+          <LoginUpdateWorkflow />
           <Switch>
             <Route path="/links/:linkId">
               <LinkDetailPage />
@@ -45,4 +46,5 @@ const App = () => {
   );
 };
 
-export default withAuthenticator(App);
+export default App;
+//export default withAuthenticator(App);

@@ -4,6 +4,8 @@ export interface Checkpoint {
   id: string;
   checkpointType: CheckpointType;
   date: Date | number;
+  timesRescheduled: number;
+  creationType: CheckpointCreationType;
 }
 
 type CheckpointCreationType = "Auto" | "Manual";
@@ -11,8 +13,6 @@ export type CheckpointType = "Scheduled" | "Past";
 
 export interface ScheduledCheckpoint extends Checkpoint {
   checkpointType: "Scheduled";
-  timesRescheduled: number;
-  creationType: CheckpointCreationType;
 }
 
 interface CheckpointFeedback {
@@ -21,8 +21,6 @@ interface CheckpointFeedback {
 
 export interface PastCheckpoint extends Checkpoint {
   checkpointType: "Past";
-  timesRescheduled: number;
-  creationType: CheckpointCreationType;
   didOccur: boolean;
   checkpointFeedback: CheckpointFeedback;
 }

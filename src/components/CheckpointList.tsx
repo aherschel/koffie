@@ -19,7 +19,7 @@ const CheckpointList = (props: CheckpointListProps) => {
     <>
       <h5>
         {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
-        You{"'"}ve had {filteredCheckpoints.length} {checkpointlistType}{" "}
+        You have {filteredCheckpoints.length} {checkpointlistType}{" "}
         checkpoints.
       </h5>
       <ListGroup>

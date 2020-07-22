@@ -16,6 +16,11 @@ import LinkOverview from "./LinkOverview";
 import LinkNotFound from "./LinkNotFound";
 import PastCheckpointListElement from "./PastCheckpointListElement";
 import CheckpointTimeline from "./CheckpointTimeline";
+import CreateCheckpointForm from "./CreateCheckpointForm";
+import CheckpointReview from "./CheckpointReview";
+import LoginUpdateWorkflow from "./LoginUpdateWorkflow";
+import ElapsedCheckpointToast from "./ElapsedCheckpointToast"
+import CheckpointFeedbackModal from "./CheckpointFeedbackModal";
 
 export {
   AppFooter,
@@ -36,4 +41,9 @@ export {
   LinkNotFound,
   PastCheckpointListElement,
   CheckpointTimeline,
+  CreateCheckpointForm,
+  CheckpointReview,
+  LoginUpdateWorkflow,
+  ElapsedCheckpointToast,
+  CheckpointFeedbackModal,
 };
