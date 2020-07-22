@@ -1,5 +1,5 @@
 import React from "react";
-import { withAuthenticator } from "aws-amplify-react";
+// import { withAuthenticator } from "aws-amplify-react";
 import Amplify from "aws-amplify";
 import {
   BrowserRouter as Router,
@@ -46,4 +46,5 @@ const App = () => {
   );
 };
 
-export default withAuthenticator(App);
+export default App;
+//export default withAuthenticator(App);
