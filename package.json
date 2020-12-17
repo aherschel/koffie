@@ -20,6 +20,7 @@
     "react-scripts": "^3.4.1"
   },
   "devDependencies": {
+    "@babel/helper-regex": "^7.10.5",
     "@types/bootstrap": "^4.3.3",
     "@types/jest": "^25.2.2",
     "@types/mocha": "^7.0.2",
