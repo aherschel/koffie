@@ -1,38 +1,38 @@
 {
-    "dev": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-koffie-dev-161908-authRole",
-            "UnauthRoleArn": "arn:aws:iam::072027113961:role/amplify-koffie-dev-161908-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::072027113961:role/amplify-koffie-dev-161908-authRole",
-            "Region": "us-west-2",
-            "DeploymentBucketName": "amplify-koffie-dev-161908-deployment",
-            "UnauthRoleName": "amplify-koffie-dev-161908-unauthRole",
-            "StackName": "amplify-koffie-dev-161908",
-            "StackId": "arn:aws:cloudformation:us-west-2:072027113961:stack/amplify-koffie-dev-161908/74095430-ae95-11ea-aa39-0a8b7f3d9ee0",
-            "AmplifyAppId": "d4oeytyo7yiqp"
-        },
-        "categories": {
-            "auth": {
-                "koffiec9191406": {}
-            }
-        }
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-koffie-dev-161908-authRole",
+      "UnauthRoleArn": "arn:aws:iam::072027113961:role/amplify-koffie-dev-161908-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::072027113961:role/amplify-koffie-dev-161908-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-koffie-dev-161908-deployment",
+      "UnauthRoleName": "amplify-koffie-dev-161908-unauthRole",
+      "StackName": "amplify-koffie-dev-161908",
+      "StackId": "arn:aws:cloudformation:us-west-2:072027113961:stack/amplify-koffie-dev-161908/74095430-ae95-11ea-aa39-0a8b7f3d9ee0",
+      "AmplifyAppId": "d4oeytyo7yiqp"
     },
-    "master": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-koffie-master-162643-authRole",
-            "UnauthRoleArn": "arn:aws:iam::072027113961:role/amplify-koffie-master-162643-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::072027113961:role/amplify-koffie-master-162643-authRole",
-            "Region": "us-west-2",
-            "DeploymentBucketName": "amplify-koffie-master-162643-deployment",
-            "UnauthRoleName": "amplify-koffie-master-162643-unauthRole",
-            "StackName": "amplify-koffie-master-162643",
-            "StackId": "arn:aws:cloudformation:us-west-2:072027113961:stack/amplify-koffie-master-162643/82dcfe70-ae96-11ea-9af0-06ce7351dd4e",
-            "AmplifyAppId": "d4oeytyo7yiqp"
-        },
-        "categories": {
-            "auth": {
-                "koffiec9191406": {}
-            }
-        }
+    "categories": {
+      "auth": {
+        "koffiec9191406": {}
+      }
     }
+  },
+  "master": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-koffie-master-162643-authRole",
+      "UnauthRoleArn": "arn:aws:iam::072027113961:role/amplify-koffie-master-162643-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::072027113961:role/amplify-koffie-master-162643-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-koffie-master-162643-deployment",
+      "UnauthRoleName": "amplify-koffie-master-162643-unauthRole",
+      "StackName": "amplify-koffie-master-162643",
+      "StackId": "arn:aws:cloudformation:us-west-2:072027113961:stack/amplify-koffie-master-162643/82dcfe70-ae96-11ea-9af0-06ce7351dd4e",
+      "AmplifyAppId": "d4oeytyo7yiqp"
+    },
+    "categories": {
+      "auth": {
+        "koffiec9191406": {}
+      }
+    }
+  }
 }
