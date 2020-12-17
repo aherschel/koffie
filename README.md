@@ -1,5 +1,5 @@
 # koffie
-
+.
 ## Run locally with the Amplify CLI
 
 1. Clone the repo that was just forked in your account
