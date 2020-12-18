@@ -1,10 +1,41 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { Auth } from "aws-amplify";
-import { Navbar, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav, Button, Spinner } from "react-bootstrap";
+
+const signIn = async () => {
+  await Auth.federatedSignIn();
+};
 
 const signOut = async () => {
   await Auth.signOut();
+};
+
+const SignInSignOutButton = () => {
+  const [isSignedIn, setSignedIn] = useState<boolean | undefined>(undefined);
+
+  useEffect(() => {
+    const loadUserState = async () => {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        setSignedIn(user !== undefined);
+      } catch (e) {
+        setSignedIn(false);
+      }
+    };
+    loadUserState();
+  });
+
+  if (isSignedIn !== undefined) {
+    return isSignedIn
+      ? <Button variant="outline-light" onClick={signOut}>Sign Out</Button>
+      : <Button variant="outline-light" onClick={signIn}>Sign In</Button>
+  }
+  return (
+    <Spinner animation="border" role="status" variant="light">
+      <span className="sr-only">Loading...</span>
+    </Spinner>
+  );
 };
 
 /**
@@ -24,9 +55,7 @@ const AppHeader = () => {
             About
           </Link>
         </Nav>
-        <Button variant="outline-light" onClick={signOut}>
-          SignOut
-        </Button>
+        <SignInSignOutButton />
       </Navbar.Collapse>
     </Navbar>
   );

@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "aws-amplify": "^2.2.0",
-    "aws-amplify-react": "^3.1.1",
+    "aws-amplify": "^3.3.13",
     "bootstrap": "^4.4.1",
     "eslint": "^6.6.0",
     "guid-typescript": "^1.0.9",
